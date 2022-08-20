@@ -1,0 +1,177 @@
+<robot name = "linkage">
+    <!-- links section -->>
+ <link name = "base">
+      <inertial>
+         <origin xyz = "0 0 0" rpy="0 0 0"/>
+         <mass value = "0.5" />
+         <inertia ixx="0.5" iyy="0.5" izz="0.5" ixy="0" ixz="0" iyz="0" />
+      </inertial>
+      <visual>
+        <origin xyz = "0 0 0" />
+        <geometry>
+            <mesh filename="./armSTL_1211/base.STL"  />
+        </geometry>
+        <material name = "gray C">
+            <color rgba = "0.5 0.5 0.5 1" />
+        </material>
+     </visual>
+    </link>
+  <link name = "link1">
+      <inertial>
+         <origin xyz = "0 0 0" rpy="0 0 0"/>
+         <mass value = "0.5" />
+         <inertia ixx="0.5" iyy="0.5" izz="0.5" ixy="0" ixz="0" iyz="0" />
+      </inertial>
+      <visual>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="./armSTL_1211/link1.STL" />
+            </geometry>
+            <material name = "gray A">
+                <color rgba = "0.1 0.1 0.1 1" />
+            </material>
+      </visual>
+    </link>
+
+    <link name = "link2">
+      <inertial>
+         <origin xyz = "0 0 0" rpy="0 0 0"/>
+         <mass value = "0.5" />
+         <inertia ixx="0.5" iyy="0.5" izz="0.5" ixy="0" ixz="0" iyz="0" />
+      </inertial>
+      <visual>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="./armSTL_1211/link2.STL" />
+            </geometry>
+            <material name = "gray B">
+                <color rgba = "0.3 0.3 0.3 1" />
+            </material>
+      </visual>
+    </link>
+
+<link name = "link3">
+    <inertial>
+        <origin xyz = "0 0 0" rpy="0 0 0"/>
+        <mass value = "0.5" />
+        <inertia ixx="0.5" iyy="0.5" izz="0.5" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+         <origin xyz = "0 0 0" rpy="0 0 0"/>
+         <geometry>
+                <mesh filename="./armSTL_1211/link3.STL" />
+            </geometry>
+            <material name = "gray B">
+                <color rgba = "1 0.3 0.3 1" />
+            </material>
+    </visual>
+    </link>
+
+<link name = "link4">
+      <inertial>
+         <origin xyz = "0 0 0" rpy="0 0 0"/>
+         <mass value = "0.5" />
+         <inertia ixx="0.5" iyy="0.5" izz="0.5" ixy="0" ixz="0" iyz="0" />
+      </inertial>
+      <visual>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="./armSTL_1211/link4.STL" />
+            </geometry>
+            <material name = "gray B">
+                <color rgba = "0.3 0.3 0.3 1" />
+            </material>
+      </visual>
+    </link>
+
+
+<link name = "link5">
+      <inertial>
+         <origin xyz = "0 0 0" rpy="0 0 0"/>
+         <mass value = "0.5" />
+         <inertia ixx="0.5" iyy="0.5" izz="0.5" ixy="0" ixz="0" iyz="0" />
+      </inertial>
+      <visual>
+           <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="./armSTL_1211/link5.STL" />
+            </geometry>
+            <material name = "gray B">
+                <color rgba = "0.3 0.3 0.3 1" />
+            </material>
+      </visual>
+    </link>
+
+<link name = "link6">
+        <visual>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="./armSTL_1211/link6.STL" />
+            </geometry>
+            <material name = "gray B">
+                <color rgba = "0.3 0.3 0.3 1" />
+            </material>
+        </visual>
+    </link>
+
+  <link name = "tool">
+      <inertial>
+         <origin xyz = "0 0 0" rpy="0 0 0"/>
+         <mass value = "0.5" />
+         <inertia ixx="0.5" iyy="0.5" izz="0.5" ixy="0" ixz="0" iyz="0" />
+      </inertial>
+      <visual>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="./armSTL_1211/tool.STL" />
+            </geometry>
+            <material name = "red C">
+                <color rgba = "0.9 0. 0. 1" />
+            </material>
+      </visual>
+    </link>
+
+<!-- joints section -->>
+    <joint name = "joint1" type = "continuous">
+        <parent link = "base" />
+        <child link = "link1" />
+        <origin xyz = "0 0 0.270" />
+        <axis xyz = "0 0 1" />
+    </joint>
+    <joint name = "joint2" type = "continuous">
+        <parent link = "link1" />
+        <child link = "link2" />
+        <origin xyz = "0 0 0" rpy="1.57 0 0"/>
+        <axis xyz = "0 0 1" />
+    </joint>
+    <joint name = "joint3" type = "continuous">
+        <parent link = "link2" />
+        <child link = "link3" />
+        <origin xyz = "0.13 0 0" rpy="0 0 -1.57"/>
+        <axis xyz = "0 0 1" />
+    </joint>
+    <joint name = "joint4" type = "continuous">
+        <parent link = "link3" />
+        <child link = "link4" />
+        <origin xyz = "0.18 0 0" rpy=" 0 1.57 0"/>
+        <axis xyz = "0 0 1" />
+    </joint>
+    <joint name = "joint5" type = "continuous">
+        <parent link = "link4" />
+        <child link = "link5" />
+        <origin xyz = "0 0 0" rpy="0 -1.57 0" />
+        <axis xyz = "0 0 1" />
+    </joint>
+    <joint name = "joint6" type = "continuous">
+        <parent link = "link5" />
+        <child link = "link6" />
+        <origin xyz = "0 0 0" rpy="0 1.57 0"/>
+        <axis xyz = "0 0 1" />
+    </joint>
+    <joint name = "fix1" type = "fixed">
+        <parent link = "link6" />
+        <child link = "tool" />
+        <origin xyz = "0 0 0.09" rpy="0 0 0" />
+        <axis xyz = "0 0 1" />
+    </joint>
+</robot>
